@@ -35,6 +35,7 @@ class Simulation(private val orderReader: OrderReader) : ISimulation {
 
     override fun status(): QueuesState {
         val state = queuesController.state()
+        printState(state)
         println(state) //TODO nice print for it
         return state
     }
@@ -43,9 +44,15 @@ class Simulation(private val orderReader: OrderReader) : ISimulation {
         queuesController.step()
     }
 
-    override fun waitingTime(truckId: TruckID) {
-        TODO("print waiting time")
+    override fun waitingTime(truckId: TruckID) = queuesController.waitingTime(truckId)
 
+    private fun printState(state: QueuesState) {
+        state.queues.forEachIndexed { index, queue ->
+            println("Queue $index: ${queue.reversed()}")
+        }
+
+        val pending = state.pending.take(3).reversed()
+        println("Pending: $pending")
     }
-
 }
+
