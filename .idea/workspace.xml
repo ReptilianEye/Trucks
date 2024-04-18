@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9ec50582-8515-4079-a1fd-69fdbed4fa21" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/inputReaders/FileReaderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/inputReaders/FileReaderTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/inputReaders/TerminalReaderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/inputReaders/TerminalReaderTest.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Trucks" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Trucks" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Trucks" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Trucks" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ReptilianEye&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ReptilianEye/Trucks.git&quot;,
+    &quot;accountId&quot;: &quot;32c0333d-0ab4-4f02-bdce-f82297893706&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2f8tUpg01fSMmTn7xqFM0ZaU8oQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build Trucks.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FileReaderTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FileReaderTest.test nextOrder() with complex input.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FileReaderTest.test nextOrder() with empty file.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FileReaderTest.test nextOrder() with valid input.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.InstructionParserTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.InstructionParserTest.parse should return ParseError when instr is \&quot;a\&quot; and arg empty string.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.InstructionParserTest.parse should return ParseError when instr is \&quot;a\&quot; and arg is weight equals 0.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.InstructionParserTest.parse should return Success with Arrived order when instr is \&quot;a\&quot; and arg is valid weight.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.InstructionParserTest.parse should return Success with Status order when instr is \&quot;Status\&quot; (input is insensitive to cases).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TerminalReaderTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TerminalReaderTest.test nextOrder() with no \&quot;stop\&quot; instruction.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TerminalReaderTest.test nextOrder() with null result.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TerminalReaderTest.test nextOrder() with parse error.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TerminalReaderTest.test nextOrder() with valid input.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'Trucks.test'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueControllerTest.addToPending.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueControllerTest.step.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueControllerTest.waitingTime.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testCheckIfFinishedChecking.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testGetNotNullQueue.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testGetQueueToPrint.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testIsFull.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testMinOrNull.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testMoveAllExcept.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testPut.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testRemove.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testSqueeze.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testStep.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckQueueTests.testSwap.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckTest.test truck comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TruckTest.test truck equals.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Trucks [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Trucks [jar].executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Trucks-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.TerminalReaderKt.executor&quot;: &quot;Debug&quot;,
+    &quot;Kotlin.TruckKt.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;kotlin-gradle-user-dirs&quot;: [
+      &quot;D:\\APPS\\Android&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\piotr\Programowanie\ZadaniaStazowe\Trucks\src\main\resources" />
+      <recent name="C:\Users\piotr\Programowanie\ZadaniaStazowe\Trucks\src\main\kotlin\inputReaders" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="org.example" />
+      <recent name="org.example.model" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="inputReaders" />
+      <recent name="model" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="inputReaders" />
+      <recent name="model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.Trucks [jar]">
+    <configuration name="FileReaderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;inputReaders.FileReaderTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FileReaderTest.test nextOrder() with complex input" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;inputReaders.FileReaderTest.test nextOrder() with complex input&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FileReaderTest.test nextOrder() with empty file" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;inputReaders.FileReaderTest.test nextOrder() with empty file&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Trucks [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Trucks [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.MainKt" />
+      <module name="Trucks.main" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Trucks [jar]" />
+      <item itemvalue="Gradle.FileReaderTest.test nextOrder() with empty file" />
+      <item itemvalue="Gradle.FileReaderTest.test nextOrder() with complex input" />
+      <item itemvalue="Gradle.Trucks [clean]" />
+      <item itemvalue="Gradle.FileReaderTest" />
+      <item itemvalue="Kotlin.MainKt" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Trucks [jar]" />
+        <item itemvalue="Gradle.FileReaderTest.test nextOrder() with empty file" />
+        <item itemvalue="Gradle.FileReaderTest" />
+        <item itemvalue="Gradle.FileReaderTest.test nextOrder() with complex input" />
+        <item itemvalue="Gradle.Trucks [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9ec50582-8515-4079-a1fd-69fdbed4fa21" name="Changes" comment="" />
+      <created>1713194576962</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713194576962</updated>
+      <workItem from="1713194578266" duration="8354000" />
+      <workItem from="1713242851759" duration="49000" />
+      <workItem from="1713242929932" duration="22536000" />
+      <workItem from="1713288288404" duration="3552000" />
+      <workItem from="1713330094111" duration="431000" />
+      <workItem from="1713331257155" duration="4467000" />
+      <workItem from="1713361481707" duration="355000" />
+      <workItem from="1713362397166" duration="1818000" />
+      <workItem from="1713364564848" duration="1464000" />
+      <workItem from="1713370642307" duration="1542000" />
+      <workItem from="1713416609227" duration="22095000" />
+      <workItem from="1713456310937" duration="5108000" />
+      <workItem from="1713464574605" duration="2228000" />
+    </task>
+    <servers />
+  </component>
+</project>

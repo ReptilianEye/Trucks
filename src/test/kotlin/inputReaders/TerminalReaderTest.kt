@@ -17,7 +17,6 @@ class TerminalReaderTest {
 
     @BeforeEach
     fun setUp() {
-        print("\u001b[H\u001b[2J")
         terminalReader = TerminalReader
         output = ByteArrayOutputStream()
         System.setOut(PrintStream(output))
@@ -81,16 +80,4 @@ class TerminalReaderTest {
     }
 
 
-//    @Test
-//    fun `test nextOrder() with null result`() {
-//        input = ByteArrayInputStream("h\nstop\n".toByteArray())
-//        System.setIn(input)
-//
-//        val instructionsField = terminalReader.javaClass.getDeclaredField("instructions")
-//        instructionsField.isAccessible = true
-//        val expectedInstructions = instructionsField.get(null) as String
-//
-//        terminalReader.nextOrder()
-//        assertEquals(expectedInstructions, output.toString().trim())
-//    }
 }
