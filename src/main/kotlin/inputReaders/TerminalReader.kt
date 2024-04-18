@@ -1,12 +1,11 @@
 package org.example.inputReaders
 
-import org.example.inputReaders.InstructionParser.parse
 import org.example.model.Order
 
 
-class TerminalReader : InputReader {
+object TerminalReader : InputReader() {
     init {
-        InstructionParser.printInstructions()
+        printInstructions()
     }
 
     override fun nextOrder(): Order {
@@ -15,7 +14,7 @@ class TerminalReader : InputReader {
             when (val res = parse(instr, arg)) {
                 is Success -> return res.value
                 is ParseError -> println(res.error)
-                null -> InstructionParser.printInstructions()
+                null -> printInstructions()
 //                else -> {throw Error("Unknown Result type")}
             }
         }

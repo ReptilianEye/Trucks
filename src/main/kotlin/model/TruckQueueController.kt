@@ -3,7 +3,7 @@ package org.example.model
 import java.util.*
 
 class TruckQueueController {
-    private val maxSize = 5 //max queue size
+    private val maxSize = 5 //max single queue size
     private val trucks = mutableSetOf<TruckID>()
 
     private val upperQueue = TruckQueue(maxSize)
@@ -15,8 +15,8 @@ class TruckQueueController {
         upperQueue.step()
         bottomQueue.step()
 
-        upperQueue.checkIfFinishedChecking().let { if (it != null) trucks.remove(it.id) }
-        bottomQueue.checkIfFinishedChecking().let { if (it != null) trucks.remove(it.id) }
+        upperQueue.checkIfFinishedChecking()?.let { trucks.remove(it.id) }
+        bottomQueue.checkIfFinishedChecking()?.let { trucks.remove(it.id) }
 
         if (upperQueue.checkingStationFree()) {
             fillOneOfQueues()
@@ -31,39 +31,29 @@ class TruckQueueController {
 
     private fun handleEmptyStation(queue: TruckQueue) {
         val other = queue.other()
-        val minTruck = minFromQueuesAndPending() ?: return
 
-        queue.moveAllExcept(other, minTruck)
+        minFromQueuesAndPending()?.let { minTruck ->
+            queue.moveToOtherAllExcept(other, minTruck)
 
-        if (pending.peek() == minTruck) {
-            pending.poll()
-        } else {
-            queue.remove(minTruck)
+            if (pending.peek() == minTruck) pending.poll()
+            else queue.remove(minTruck)
+
+            queue.setCurrentChecking(minTruck)
         }
-
-        queue.setCurrentChecking(minTruck)
-
     }
 
 
-    fun waitingTime(truckId: TruckID) {
-        if (!trucks.contains(truckId)) {
-            println("Truck with id=$truckId does not exist")
-            return
-        }
-        if (pending.any { it.id == truckId }) {
-            println("Truck with id=$truckId is in pending. Cannot calculate waiting time")
-            return
-        }
-        val allQues = listOf(upperQueue, bottomQueue)
-        allQues.firstOrNull { it.currentlyChecking?.id == truckId }.let {
-            if (it != null) {
-                println("Truck with id=$truckId is currently being checked. Time left: ${it.timeToFinishChecking}")
-                return
-            }
-        }
-        checkTimeForTruckInQue(allQues, truckId)
+    fun waitingTime(truckId: TruckID) = when {
+        !trucks.contains(truckId) -> println("Truck with id=$truckId does not exist")
 
+        pending.any { it.id == truckId } -> println("Truck with id=$truckId is in pending. Cannot calculate waiting time")
+
+        else -> {
+            val allQues = listOf(upperQueue, bottomQueue)
+            allQues.firstOrNull { it.currentlyChecking?.id == truckId }?.let {
+                println("Truck with id=$truckId is currently being checked. Time left: ${it.timeToFinishChecking}")
+            } ?: checkTimeForTruckInQue(allQues, truckId)
+        }
     }
 
     private fun checkTimeForTruckInQue(

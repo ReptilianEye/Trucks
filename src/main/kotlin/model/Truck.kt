@@ -4,16 +4,14 @@ typealias TruckID = Long
 
 data class Truck private constructor(val id: Long, val weight: Int) : Comparable<Truck> {
 
-    //TODO probably change to UUID
-    companion object {
-        private var ID: TruckID = 0L
-        private fun next() = ID++
+    constructor(weight: Int) : this(next(), weight)
 
-        operator fun invoke(weight: Int) = Truck(next(), weight)
+    companion object {
+        private var ID: TruckID = 0
+        private fun next() = ID++
     }
 
     override fun compareTo(other: Truck): Int {
         return this.weight.compareTo(other.weight)
     }
 }
-

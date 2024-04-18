@@ -1,4 +1,7 @@
-package org.example.model
+package org.example
+
+import org.example.model.QueuesState
+import org.example.model.TruckID
 
 interface ISimulation {
     fun run()
@@ -7,5 +10,4 @@ interface ISimulation {
     fun status(): QueuesState
     fun step()
     fun waitingTime(truckId: TruckID)
-
 }

@@ -2,11 +2,18 @@ package org.example.model
 
 import kotlin.math.max
 
-class TruckQueue(maxSize: Int = 5) {
-    val queue: Array<Truck?> = arrayOfNulls(maxSize - 1)
+/**
+ * TruckQueue is a queue of trucks that are waiting to be checked.
+ * It has a maxSize, which is the size of the queue + 1.
+ *
+ * @property maxSize the actual size of the queue + 1 (one truck is being checked)
+ */
+class TruckQueue(private val maxSize: Int) {
+    private val queue: Array<Truck?> = arrayOfNulls(maxSize - 1)
     var currentlyChecking: Truck? = null
     var timeToFinishChecking: Int = 0
         private set
+
 
     fun put(value: Truck) {
 //        squeeze()
@@ -15,7 +22,7 @@ class TruckQueue(maxSize: Int = 5) {
 
     fun squeeze() {
         val squeezed = queue.filterNotNull()
-        queue.forEachIndexed { i, _ ->
+        queue.indices.forEach { i ->
             queue[i] = squeezed.getOrNull(i)
         }
 //        var curr = 0
@@ -27,7 +34,7 @@ class TruckQueue(maxSize: Int = 5) {
 //        }
     }
 
-    fun moveAllExcept(other: TruckQueue, exceptTruck: Truck) {
+    fun moveToOtherAllExcept(other: TruckQueue, exceptTruck: Truck) {
         // move all trucks to second queue except the one that is currently checking
         queue.forEachIndexed { i, v ->
             if (v != null && v != exceptTruck) swap(other, i)
@@ -36,10 +43,7 @@ class TruckQueue(maxSize: Int = 5) {
         other.queue.indexOfFirst {
             it == exceptTruck
         }.let {
-            if (it != -1) {
-                swap(other, it)
-
-            }
+            if (it != -1) swap(other, it)
         }
         other.squeeze()
         this.squeeze()
@@ -51,6 +55,7 @@ class TruckQueue(maxSize: Int = 5) {
 
     fun remove(truck: Truck) {
         queue[queue.indexOf(truck)] = null
+        squeeze()
     }
 
     fun isEmpty() = queue.all { it == null }
@@ -66,7 +71,7 @@ class TruckQueue(maxSize: Int = 5) {
     fun checkingStationFree() = timeToFinishChecking == 0
 
     fun checkIfFinishedChecking() =
-        if (timeToFinishChecking == 0) currentlyChecking.also { currentlyChecking = null } else null
+        if (timeToFinishChecking == 0) currentlyChecking?.also { currentlyChecking = null } else null
 
     fun step() {
         timeToFinishChecking = max(0, timeToFinishChecking - 1)
