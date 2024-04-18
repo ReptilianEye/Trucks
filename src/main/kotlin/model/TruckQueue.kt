@@ -16,7 +16,6 @@ class TruckQueue(private val maxSize: Int) {
 
 
     fun put(value: Truck) {
-//        squeeze()
         queue[queue.indexOfFirst { it == null }] = value
     }
 
@@ -25,13 +24,6 @@ class TruckQueue(private val maxSize: Int) {
         queue.indices.forEach { i ->
             queue[i] = squeezed.getOrNull(i)
         }
-//        var curr = 0
-//        for (i in queue.indices) {
-//            if (queue[i] != null && i != curr) {
-//                queue[curr++] = queue[i]
-//                queue[i] = null
-//            }
-//        }
     }
 
     fun moveToOtherAllExcept(other: TruckQueue, exceptTruck: Truck) {
@@ -75,11 +67,6 @@ class TruckQueue(private val maxSize: Int) {
 
     fun step() {
         timeToFinishChecking = max(0, timeToFinishChecking - 1)
-//        if (timeToFinishChecking == 0) {
-////            currentlyChecking = null
-//            return currentlyChecking.also { currentlyChecking = null }
-//        }
-//        return null
     }
 
 

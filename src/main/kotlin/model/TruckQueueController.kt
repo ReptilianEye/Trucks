@@ -103,12 +103,7 @@ class TruckQueueController {
 
     fun getState() = QueuesState(pending, listOf(upperQueue.getQueueToPrint(), bottomQueue.getQueueToPrint()))
 
-//    //TODO probably can be done better
-//    private fun getUpperQueue() = upperQueue
-//    private fun getBottomQueue() = bottomQueue
-
     private fun TruckQueue.other() = if (this == upperQueue) bottomQueue else upperQueue
-//    private fun otherQueue(queue: TruckQueue) = if (queue == upperQueue) bottomQueue else upperQueue
 
 
 }
