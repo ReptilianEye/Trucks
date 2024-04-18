@@ -1,4 +1,4 @@
-package org.example
+package org.example.inputReaders
 
 import org.example.model.Order
 import org.example.model.TruckID
@@ -30,9 +30,23 @@ object InstructionParser {
             }
 
             "h", "help" -> return null
-            "x" -> return Success(Order.Stop)
+            "stop", "x" -> return Success(Order.Stop)
 
             else -> return ParseError("$instr is unknown command")
         }
+    }
+
+    fun printInstructions() {
+        println(
+            """
+                |Instructions:
+                |  a <weight> - add truck with weight <weight>
+                |  status - show status of queues
+                |  step - move trucks from pending to queues
+                |  w <truckId> - show waiting time of truck with id <truckId>
+                |  stop - stop simulation
+                |  help - show instructions
+                """.trimMargin()
+        )
     }
 }

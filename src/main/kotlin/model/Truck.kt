@@ -2,13 +2,18 @@ package org.example.model
 
 typealias TruckID = Long
 
-data class Truck(val weight: Int) {
-    val id = next()
+data class Truck private constructor(val id: Long, val weight: Int) : Comparable<Truck> {
 
-    override fun equals(other: Any?) = other is Truck && other.id == id
-
+    //TODO probably change to UUID
     companion object {
         private var ID: TruckID = 0L
-        fun next() = ID++
+        private fun next() = ID++
+
+        operator fun invoke(weight: Int) = Truck(next(), weight)
+    }
+
+    override fun compareTo(other: Truck): Int {
+        return this.weight.compareTo(other.weight)
     }
 }
+

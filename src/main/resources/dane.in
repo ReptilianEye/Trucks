@@ -1,0 +1,49 @@
+a 10
+a 8
+a 6
+a 4
+a 2
+status
+sta
+step
+status
+w 0
+w 1
+w 2
+w 3
+w 4
+step
+w 0
+w 1
+w 2
+w 3
+w 4
+step
+w 0
+w 1
+w 2
+w 3
+w 4
+step
+w 0
+w 1
+w 2
+w 3
+w 4
+a 1
+a 20
+a 10
+a 5
+a 2
+a 3
+step
+status
+step
+status
+step
+status
+step
+status
+step
+status
+stop

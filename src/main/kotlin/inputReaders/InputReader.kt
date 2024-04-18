@@ -1,7 +1,7 @@
-package org.example
+package org.example.inputReaders
 
 import org.example.model.Order
 
-interface OrderReader {
+interface InputReader {
     fun nextOrder(): Order
 }

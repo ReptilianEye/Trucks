@@ -3,29 +3,46 @@ package org.example.model
 import kotlin.math.max
 
 class TruckQueue(maxSize: Int = 5) {
-    private val queue: Array<Truck?> = arrayOfNulls(maxSize - 1)
+    val queue: Array<Truck?> = arrayOfNulls(maxSize - 1)
     var currentlyChecking: Truck? = null
-    private var timeToFinishChecking: Int = 0
+    var timeToFinishChecking: Int = 0
+        private set
 
-    fun put(value: Truck?) {
-        squeeze()
+    fun put(value: Truck) {
+//        squeeze()
         queue[queue.indexOfFirst { it == null }] = value
     }
 
     fun squeeze() {
-        var curr = 0
-        for (i in queue.indices) {
-            if (queue[i] != null) {
-                queue[curr++] = queue[i]
-                queue[i] = null
-            }
+        val squeezed = queue.filterNotNull()
+        queue.forEachIndexed { i, _ ->
+            queue[i] = squeezed.getOrNull(i)
         }
+//        var curr = 0
+//        for (i in queue.indices) {
+//            if (queue[i] != null && i != curr) {
+//                queue[curr++] = queue[i]
+//                queue[i] = null
+//            }
+//        }
     }
 
     fun moveAllExcept(other: TruckQueue, exceptTruck: Truck) {
-        queue.forEachIndexed { i, _ ->
-            if (queue[i] != exceptTruck) swap(other, i)
+        // move all trucks to second queue except the one that is currently checking
+        queue.forEachIndexed { i, v ->
+            if (v != null && v != exceptTruck) swap(other, i)
         }
+        // if the truck was in the second queue, we need to bring it to the first queue
+        other.queue.indexOfFirst {
+            it == exceptTruck
+        }.let {
+            if (it != -1) {
+                swap(other, it)
+
+            }
+        }
+        other.squeeze()
+        this.squeeze()
     }
 
     fun swap(other: TruckQueue, index: Int) {
@@ -43,24 +60,29 @@ class TruckQueue(maxSize: Int = 5) {
 
     fun setCurrentChecking(truck: Truck) {
         currentlyChecking = truck
-        this.timeToFinishChecking = truck.weight
+        timeToFinishChecking = truck.weight
     }
 
     fun checkingStationFree() = timeToFinishChecking == 0
 
-    fun step(): Truck? {
+    fun checkIfFinishedChecking() =
+        if (timeToFinishChecking == 0) currentlyChecking.also { currentlyChecking = null } else null
+
+    fun step() {
         timeToFinishChecking = max(0, timeToFinishChecking - 1)
-        if (timeToFinishChecking == 0) {
-//            currentlyChecking = null
-            return currentlyChecking.also { currentlyChecking = null }
-        }
-        return null
+//        if (timeToFinishChecking == 0) {
+////            currentlyChecking = null
+//            return currentlyChecking.also { currentlyChecking = null }
+//        }
+//        return null
     }
+
 
     operator fun get(i: Int) = queue[i]
     operator fun set(i: Int, value: Truck?) {
         queue[i] = value
     }
 
-    fun getQueue() = listOf(currentlyChecking) + queue
+    fun getNotNullQueue() = queue.toList().filterNotNull()
+    fun getQueueToPrint() = listOf(currentlyChecking) + queue
 }

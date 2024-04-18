@@ -1,13 +1,14 @@
 package org.example
 
+import org.example.inputReaders.InputReader
 import org.example.model.*
 
-class Simulation(private val orderReader: OrderReader) : ISimulation {
+class Simulation(private val inputReader: InputReader) : ISimulation {
 
     private val queuesController = TruckQueueController()
 
-    override fun run() {
-        when (val order = orderReader.nextOrder()) {
+    override tailrec fun run() {
+        when (val order = inputReader.nextOrder()) {
             is Order.Arrived -> {
                 arrive(order.truckWeight)
                 println("Successfully added truck with weight ${order.truckWeight}")
@@ -34,9 +35,8 @@ class Simulation(private val orderReader: OrderReader) : ISimulation {
     }
 
     override fun status(): QueuesState {
-        val state = queuesController.state()
+        val state = queuesController.getState()
         printState(state)
-        println(state) //TODO nice print for it
         return state
     }
 
@@ -47,12 +47,14 @@ class Simulation(private val orderReader: OrderReader) : ISimulation {
     override fun waitingTime(truckId: TruckID) = queuesController.waitingTime(truckId)
 
     private fun printState(state: QueuesState) {
+        val emptySlotSign = "_"
+
         state.queues.forEachIndexed { index, queue ->
-            println("Queue $index: ${queue.reversed()}")
+            println("Queue $index: -> ${queue.reversed().map { it?.toString() ?: emptySlotSign }} ->")
         }
 
-        val pending = state.pending.take(3).reversed()
-        println("Pending: $pending")
+        val pending = state.pending.reversed().map { it?.toString() ?: emptySlotSign }
+        println("Pending: -> $pending ->")
     }
 }
 

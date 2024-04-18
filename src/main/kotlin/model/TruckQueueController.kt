@@ -2,9 +2,9 @@ package org.example.model
 
 import java.util.*
 
-class TruckQueueController() {
+class TruckQueueController {
     private val maxSize = 5 //max queue size
-    private val trucks = mutableSetOf<Truck>()
+    private val trucks = mutableSetOf<TruckID>()
 
     private val upperQueue = TruckQueue(maxSize)
     private val bottomQueue = TruckQueue(maxSize)
@@ -12,8 +12,11 @@ class TruckQueueController() {
 
 
     fun step() {
-        upperQueue.step().let { if (it != null) trucks.remove(it) }
-        bottomQueue.step().let { if (it != null) trucks.remove(it) }
+        upperQueue.step()
+        bottomQueue.step()
+
+        upperQueue.checkIfFinishedChecking().let { if (it != null) trucks.remove(it.id) }
+        bottomQueue.checkIfFinishedChecking().let { if (it != null) trucks.remove(it.id) }
 
         if (upperQueue.checkingStationFree()) {
             fillOneOfQueues()
@@ -31,44 +34,58 @@ class TruckQueueController() {
         val minTruck = minFromQueuesAndPending() ?: return
 
         queue.moveAllExcept(other, minTruck)
+
+        if (pending.peek() == minTruck) {
+            pending.poll()
+        } else {
+            queue.remove(minTruck)
+        }
+
         queue.setCurrentChecking(minTruck)
 
-        if (pending.peek() == minTruck) pending.poll()
-        else {
-            queue.remove(minTruck)
-            queue.squeeze()
-        }
     }
 
 
-    fun state() = QueuesState(pending, listOf(upperQueue.getQueue(), bottomQueue.getQueue()))
-
     fun waitingTime(truckId: TruckID) {
-        if (pending.firstOrNull { it.id == truckId } != null) {
-            println("Truck is in pending. Cannot calculate waiting time")
+        if (!trucks.contains(truckId)) {
+            println("Truck with id=$truckId does not exist")
+            return
+        }
+        if (pending.any { it.id == truckId }) {
+            println("Truck with id=$truckId is in pending. Cannot calculate waiting time")
             return
         }
         val allQues = listOf(upperQueue, bottomQueue)
-        if (allQues.any { it.currentlyChecking?.id == truckId }) {
-            println("Truck is currently checking. Waiting time is 0")
-            return
+        allQues.firstOrNull { it.currentlyChecking?.id == truckId }.let {
+            if (it != null) {
+                println("Truck with id=$truckId is currently being checked. Time left: ${it.timeToFinishChecking}")
+                return
+            }
         }
-        val allTrucks = (allQues.flatMap { it.getQueue() } + pending.peek()).filterNotNull()
-            .toCollection(PriorityQueue { t1, t2 -> t1.weight - t2.weight })
-        val waitingTimeForStation = allQues.map { it.currentlyChecking?.weight ?: 0 }.toCollection(PriorityQueue())
+        checkTimeForTruckInQue(allQues, truckId)
+
+    }
+
+    private fun checkTimeForTruckInQue(
+        allQues: List<TruckQueue>,
+        truckId: TruckID
+    ) {
+        val allTrucks = (allQues.flatMap { it.getNotNullQueue() } + pending.peek()).filterNotNull()
+            .toCollection(PriorityQueue())
+        val waitingTimeForStation = allQues.map { it.timeToFinishChecking }.toCollection(PriorityQueue())
         while (allTrucks.isNotEmpty()) {
             val truck = allTrucks.poll()
             val currentWaitingTime = waitingTimeForStation.poll()
             if (truck.id == truckId) {
-                println("Waiting time for truck $truckId is $currentWaitingTime")
+                println("Approximate time for truck with id=$truckId to start check-in: $currentWaitingTime")
                 return
             }
             waitingTimeForStation.add(currentWaitingTime + truck.weight)
         }
-        println("Truck with id $truckId not found")
-
+        throw IllegalStateException("Truck with id $truckId not found")
     }
 
+    //fills queue that is not empty from pending
     private fun fillOneOfQueues() {
         val toFill = if (!upperQueue.isEmpty()) upperQueue else bottomQueue
         if (toFill.isFull()) return
@@ -81,7 +98,7 @@ class TruckQueueController() {
 
     fun addToPending(newTruck: Truck) {
         pending.add(newTruck)
-        trucks.add(newTruck)
+        trucks.add(newTruck.id)
     }
 
     private fun minFromQueuesAndPending() = listOfNotNull(
@@ -94,9 +111,11 @@ class TruckQueueController() {
         }, pending.peek()
     ).minByOrNull { it.weight }
 
-    //TODO probably can be done better
-    private fun getUpperQueue() = upperQueue
-    private fun getBottomQueue() = bottomQueue
+    fun getState() = QueuesState(pending, listOf(upperQueue.getQueueToPrint(), bottomQueue.getQueueToPrint()))
+
+//    //TODO probably can be done better
+//    private fun getUpperQueue() = upperQueue
+//    private fun getBottomQueue() = bottomQueue
 
     private fun TruckQueue.other() = if (this == upperQueue) bottomQueue else upperQueue
 //    private fun otherQueue(queue: TruckQueue) = if (queue == upperQueue) bottomQueue else upperQueue
