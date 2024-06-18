@@ -20,4 +20,3 @@ lub w IntelliJ IDEA uruchomić plik Main.kt.
 
 - Aplikacja oprócz zczytywania z standardowego wejścia, czyta również z pliku `dane.in` w katalogu z projektem. TODO: W przyszłości można dodać możliwość podania ścieżki do pliku jako argumentu.
 - Do testów jednostkowych zczytywania z pliku tworzę tymczasowy plik. Niestety pomimo prób, nie udało mi się usuwać tego pliku po zakończeniu testów. TODO: Poprawić usuwanie pliku tymczasowego.
-- Wybór Kotlina nad Javą był spowodowany chęcią pozostania przy języku obiektowym, ale sprawdzenia nowych możliwości jakie daje Kotlin.
